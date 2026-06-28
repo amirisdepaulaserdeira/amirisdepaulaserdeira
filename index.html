@@ -134,6 +134,17 @@
     .nl-body{flex:1 1 320px;min-width:280px}
     .nl-body h2{margin:.45rem 0 .8rem}
     .nl-desc{color:var(--slate);max-width:54ch;margin-bottom:1.6rem}
+    .nl-editions{margin-top:clamp(34px,5vw,52px)}
+    .nl-editions .ed-head{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+    .ed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+    .ed-card{display:flex;flex-direction:column;gap:.55rem;background:var(--navy-800);border:1px solid var(--navy-700);border-left:3px solid var(--gold);border-radius:3px;padding:1.15rem 1.25rem 1.3rem;text-decoration:none;transition:border-color .25s ease,transform .25s ease}
+    .ed-card:hover,.ed-card:focus-visible{border-color:var(--gold);transform:translateY(-3px)}
+    .ed-card .ed-date{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.04em;color:var(--gold)}
+    .ed-card .ed-title{font-family:"Fraunces",serif;font-size:1.06rem;font-weight:600;color:var(--cream);line-height:1.3}
+    .ed-card:hover .ed-title{color:var(--gold-soft)}
+    .ed-card .ed-dek{font-size:.9rem;color:var(--slate);line-height:1.5}
+    .ed-card .ed-read{margin-top:auto;font-family:"IBM Plex Mono",monospace;font-size:.73rem;color:var(--gold-soft)}
+    .ed-card .pend{color:var(--gold-soft);font-style:italic}
 
     /* Trajetória */
     .timeline{position:relative;max-width:800px;margin-left:6px}
@@ -229,7 +240,7 @@
     .course-list li{border-left:2px solid var(--navy-700);padding-left:.9rem}
     .course-list .cn{display:block;font-size:.97rem;color:var(--cream);line-height:1.38}
     .course-list .ci{display:block;font-family:"IBM Plex Mono",monospace;font-size:.71rem;color:var(--slate);letter-spacing:.02em;margin-top:.22rem}
-    .course-list .ci .pend{color:var(--gold-soft);font-style:italic}
+    .pend{color:var(--gold-soft);font-style:italic}
 
     /* ===== Mídia: cards com chamada ===== */
     .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.5vw,28px)}
@@ -243,6 +254,10 @@
     .media-card:nth-child(3) .media-cover{background:linear-gradient(135deg,var(--green),var(--navy-800))}
     .media-card:nth-child(4) .media-cover{background:linear-gradient(135deg,#0E2347,#2c2410)}
     .cover-outlet{position:relative;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.07em;color:var(--cream);text-transform:uppercase;z-index:3}
+    .media-cover .play{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(7,23,54,.5);border:1.6px solid rgba(243,233,210,.75);display:flex;align-items:center;justify-content:center;z-index:3;transition:background .25s ease,transform .25s ease,border-color .25s ease}
+    .media-card:hover .play,.media-card:focus-visible .play{background:var(--gold);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.07)}
+    .media-cover .play svg{width:20px;height:20px;margin-left:3px;fill:var(--cream);transition:fill .25s ease}
+    .media-card:hover .play svg,.media-card:focus-visible .play svg{fill:var(--navy-900)}
     .media-body{display:flex;flex-direction:column;gap:.5rem;padding:1.05rem 1.2rem 1.25rem;flex:1}
     .media-body .date{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--gold);letter-spacing:.04em}
     .media-body .mt{font-family:"Fraunces",serif;font-size:1.04rem;font-weight:600;color:var(--cream);line-height:1.3;margin:0}
@@ -250,7 +265,7 @@
     .media-body .read{margin-top:auto;font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--gold-soft)}
 
     /* ===== Breakpoints ===== */
-    @media (max-width:980px){ .figs{grid-template-columns:1fr 1fr} }
+    @media (max-width:980px){ .figs{grid-template-columns:1fr 1fr} .ed-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:860px){
       .hero .wrap{grid-template-columns:1fr}
       .portrait{margin:0 auto;max-width:300px}
@@ -260,6 +275,7 @@
       .contact .wrap{grid-template-columns:1fr}
       .nl-feature{flex-direction:column;align-items:flex-start}
       .media-grid{grid-template-columns:1fr}
+      .ed-grid{grid-template-columns:1fr}
       .menu-toggle{display:flex}
       header.site .wrap{position:relative;flex-wrap:nowrap}
       nav.menu{position:absolute;top:calc(100% + 1px);left:0;right:0;flex-direction:column;gap:0;background:var(--navy-850);border-bottom:1px solid var(--navy-700);box-shadow:0 18px 44px rgba(0,0,0,.45);max-height:0;overflow:hidden;transition:max-height .32s ease}
@@ -301,7 +317,7 @@
         <div>
           <p class="eyebrow">Economista · Gestora pública · Autora</p>
           <h1>Da evidência<br />à <em>execução</em>.</h1>
-          <p class="position"><strong>Arquiteta-executora:</strong> quem desenha a política, faz funcionar na ponta e tem o dado para mostrar. Da pesquisa de padrão-ouro à implementação de política em escala estadual — sempre com a evidência no centro.</p>
+          <p class="position">Quem desenha a política, faz funcionar na ponta e tem o dado para mostrar. Da pesquisa de padrão-ouro à implementação de política em escala estadual — sempre com a evidência no centro.</p>
           <p class="credline">
             <span>UFES</span><i>·</i><span>Insper (PAGP)</span><i>·</i><span>FGV (MPGPP)</span><br />
             <span>Autora Springer &amp; ENAP</span><i>·</i><span>Inclusão produtiva baseada em evidência</span>
@@ -383,6 +399,29 @@
             <a class="btn btn-lg" href="https://amirisps.substack.com/p/raizes-de-mudanca" target="_blank" rel="noopener">
               Assinar a newsletter
               <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="nl-editions reveal">
+          <p class="ed-head">Últimas edições</p>
+          <div class="ed-grid">
+            <a class="ed-card" href="https://amirisps.substack.com/p/raizes-de-mudanca" target="_blank" rel="noopener">
+              <span class="ed-date">mai/2025</span>
+              <span class="ed-title">Raízes de Mudança: a apresentação</span>
+              <span class="ed-dek">Por que análise com dados, casos e leitura crítica importa para a inclusão produtiva no Brasil subnacional.</span>
+              <span class="ed-read">Ler edição →</span>
+            </a>
+            <a class="ed-card" href="https://amirisps.substack.com/" target="_blank" rel="noopener">
+              <span class="ed-date"><span class="pend">data a confirmar</span></span>
+              <span class="ed-title"><span class="pend">Título da edição a confirmar</span></span>
+              <span class="ed-dek">Espaço reservado para uma edição em destaque — envie título, data e link.</span>
+              <span class="ed-read">Ler edição →</span>
+            </a>
+            <a class="ed-card" href="https://amirisps.substack.com/" target="_blank" rel="noopener">
+              <span class="ed-date"><span class="pend">data a confirmar</span></span>
+              <span class="ed-title"><span class="pend">Título da edição a confirmar</span></span>
+              <span class="ed-dek">Espaço reservado para uma edição em destaque — envie título, data e link.</span>
+              <span class="ed-read">Ler edição →</span>
             </a>
           </div>
         </div>
@@ -468,7 +507,7 @@
           <div class="node reveal">
             <div class="when">jan/2015 — jun/2016</div>
             <h3>Consultora de Pesquisa</h3>
-            <div class="org">Oppen Social · equipe de Samuel Rosa · Vitória/ES</div>
+            <div class="org">Oppen Social · equipe de Samuel Franco · Vitória/ES</div>
             <ul>
               <li>Pesquisa e mapeamento de políticas públicas, educacionais e socioemocionais, em âmbito nacional e internacional.</li>
               <li>Elaboração de relatórios técnicos e apresentações executivas.</li>
@@ -570,12 +609,14 @@
             <p class="pub-sub" style="margin-bottom:.7rem">Cursos &amp; certificações</p>
             <p class="edu-lead">Formação contínua em avaliação de impacto na tradição do J-PAL (desde 2017), somada a trilhas de dados, inovação e design de serviços.</p>
             <ul class="course-list">
-              <li><span class="cn">Avaliação de Impacto de Programas e Políticas Sociais</span><span class="ci"><span class="pend">Instituição a confirmar</span> · tradição J-PAL</span></li>
-              <li><span class="cn">Avaliação Econômica de Projetos Sociais</span><span class="ci"><span class="pend">Instituição a confirmar</span> · 54h</span></li>
-              <li><span class="cn">Mensuração de Impacto Social</span><span class="ci"><span class="pend">Instituição a confirmar</span> · 16h</span></li>
-              <li><span class="cn">Foundations of Data</span><span class="ci"><span class="pend">Instituição a confirmar</span> · 40h</span></li>
-              <li><span class="cn">Innovation Management</span><span class="ci"><span class="pend">Instituição a confirmar</span> · 40h</span></li>
-              <li><span class="cn">Design de Serviços</span><span class="ci"><span class="pend">Instituição a confirmar</span></span></li>
+              <li><span class="cn">Avaliação de Impacto de Programas e Políticas Sociais</span><span class="ci">J-PAL e ENAP · 2017</span></li>
+              <li><span class="cn">Avaliação Econômica de Projetos Sociais</span><span class="ci">Fundação Itaú Social · 54h</span></li>
+              <li><span class="cn">Mensuração de Impacto Social</span><span class="ci">Insper · 16h</span></li>
+              <li><span class="cn">Foundations of Data</span><span class="ci">Google · 40h</span></li>
+              <li><span class="cn">Innovation Management</span><span class="ci">Erasmus University · 40h</span></li>
+              <li><span class="cn">Design de Serviços</span><span class="ci">Caio Dib Consultoria · 10h</span></li>
+              <li><span class="cn">Publicadores de Dados</span><span class="ci">Open Knowledge Brasil · 20h</span></li>
+              <li><span class="cn">Política Educacional e Indicadores de Qualidade no Brasil</span><span class="ci">Tribunal de Contas do Município de SP · 10h</span></li>
             </ul>
             <p class="pub-sub" style="margin:1.4rem 0 .6rem">Idiomas</p>
             <p class="langs"><strong>Inglês</strong> (fluente — certificações Cambridge e TOEFL) · <strong>Espanhol</strong> (avançado) · <strong>Alemão</strong> (intermediário) · <strong>Italiano</strong> (básico)</p>
@@ -584,48 +625,46 @@
       </div>
     </section>
 
-    <!-- MÍDIA -->
+    <!-- ENTREVISTAS -->
     <section class="block" id="midia">
       <div class="wrap">
         <div class="sec-head reveal">
           <p class="eyebrow">Na mídia</p>
-          <h2>Cobertura e menções.</h2>
+          <h2>Entrevistas.</h2>
         </div>
         <div class="media-grid">
-          <a class="media-card reveal" href="https://www.agenciasp.sp.gov.br/dia-dos-namorados-banco-do-povo/" target="_blank" rel="noopener">
-            <div class="media-cover"><span class="cover-outlet">Agência SP</span></div>
+          <a class="media-card reveal" href="https://www.youtube.com/watch?v=PH9ChKSqAMo" target="_blank" rel="noopener">
+            <div class="media-cover">
+              <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
             <div class="media-body">
-              <span class="date">jun/2026</span>
-              <h3 class="mt">Dia dos Namorados alavanca negócios apoiados pelo Banco do Povo</h3>
-              <span class="read">Ler matéria →</span>
+              <span class="date"><span class="pend">data a confirmar</span></span>
+              <h3 class="mt">SIMPI</h3>
+              <span class="read">Assistir →</span>
             </div>
           </a>
-          <a class="media-card reveal" href="https://www.limeira.sp.gov.br/imprensa/noticias/destaques/jornada-de-credito-reune-empresarios-e-amplia-acesso-a-oportunidades-de-financiamento-em-limeira" target="_blank" rel="noopener">
-            <div class="media-cover"><span class="cover-outlet">Prefeitura de Limeira</span></div>
+          <a class="media-card reveal" href="https://www.youtube.com/watch?v=IdIueaEuuAc" target="_blank" rel="noopener">
+            <div class="media-cover">
+              <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
             <div class="media-body">
-              <span class="date">jun/2026</span>
-              <h3 class="mt">Jornada de Crédito reúne empresários e amplia acesso a financiamento em Limeira</h3>
-              <span class="read">Ler matéria →</span>
+              <span class="date"><span class="pend">data a confirmar</span></span>
+              <h3 class="mt">Brasil Confidencial</h3>
+              <span class="read">Assistir →</span>
             </div>
           </a>
-          <a class="media-card reveal" href="https://site.oatibaiense.com.br/2026/04/atibaia-recebe-encontro-regional-voltado-a-modernizacao-e-desburocratizacao-dos-servicos-publicos/" target="_blank" rel="noopener">
-            <div class="media-cover"><span class="cover-outlet">O Atibaiense</span></div>
-            <div class="media-body">
-              <span class="date">abr/2026</span>
-              <h3 class="mt">Atibaia recebe encontro regional voltado à modernização e desburocratização dos serviços públicos</h3>
-              <span class="read">Ler matéria →</span>
+          <a class="media-card reveal" href="https://www.youtube.com/watch?v=UNRPXzhqwmo" target="_blank" rel="noopener">
+            <div class="media-cover">
+              <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
             </div>
-          </a>
-          <a class="media-card reveal" href="https://www.institutonatura.org/melhores-praticas-de-alfabetizacao-recebem-premio-no-pi/" target="_blank" rel="noopener">
-            <div class="media-cover"><span class="cover-outlet">Instituto Natura</span></div>
             <div class="media-body">
-              <span class="date">dez/2023</span>
-              <h3 class="mt">Melhores práticas de alfabetização recebem prêmio no Piauí</h3>
-              <span class="read">Ler matéria →</span>
+              <span class="date"><span class="pend">data a confirmar</span></span>
+              <h3 class="mt"><span class="pend">Veículo a confirmar</span></h3>
+              <span class="read">Assistir →</span>
             </div>
           </a>
         </div>
-        <p class="media-note">Seleção de registros públicos em veículos oficiais, imprensa local e institucional.</p>
+        <p class="media-note">Entrevistas em vídeo — participações datadas em programas e canais.</p>
       </div>
     </section>
 
